@@ -9,7 +9,7 @@ import { ChoiceGroup, IChoiceGroupOption } from 'office-ui-fabric-react/lib/Choi
 import { Dropdown, DropdownMenuItemType, IDropdown, IDropdownOption } from 'office-ui-fabric-react/lib/Dropdown';
 import { createRef } from 'office-ui-fabric-react/lib/Utilities';
 import { DatePicker, IDatePickerStrings } from 'office-ui-fabric-react/lib/DatePicker';
-
+import { Spinner, SpinnerSize } from 'office-ui-fabric-react/lib/Spinner';
 
 let _items: any[] = [];
 
@@ -29,6 +29,15 @@ const DayPickerStrings: IDatePickerStrings = {
   // nextYearAriaLabel: 'Go to next year',
   // closeButtonAriaLabel: 'Close date picker'
 };
+
+// function sleep(milliseconds : any) {
+//   var start = new Date().getTime();
+//   for (var i = 0; i < 1e7; i++) {
+//     if ((new Date().getTime() - start) > milliseconds){
+//       break;
+//     }
+//   }
+// }
 
 const _columns: IColumn[] = [
   {
@@ -106,6 +115,8 @@ export class App extends React.Component<
           allowDisabledFocus={true}
         />
         });
+        //sleep(1000);
+        //window.setTimeout(()=>{console.log('Hello')},10000);
       }
     }
 
@@ -155,6 +166,7 @@ export class App extends React.Component<
             onItemInvoked={this._onItemInvoked}
           />
         </MarqueeSelection>
+        <Spinner size={SpinnerSize.large} label="Seriously, still loading..." ariaLive="assertive" />
         <div>
         <PrimaryButton
           data-automation-id="delete"
