@@ -144,13 +144,6 @@ export class App extends React.Component<
     return (
       <div>
         <div>{selectionDetails}</div>
-        {/* <div>
-          <Checkbox
-            label="Show index of the first item in view when unmounting"
-            checked={this.state.showItemIndexInView}
-            onChange={this._onShowItemIndexInViewChanged}
-          />
-        </div> */}
         <TextField label="Filter by name:" onChange={this._onChange} />
         <MarqueeSelection selection={this._selection}>
           <DetailsList
